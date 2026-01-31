@@ -1,0 +1,13 @@
+body {
+    font-family: sans-serif;
+    color: cornflowerblue;
+    background-color: floralwhite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}

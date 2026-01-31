@@ -1,0 +1,19 @@
+{% load static %}
+<!-- The above django template language imports the use of static so we can dynamically import css-->
+<!--Anything goes here doesn't get run like "#" in python--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <!-- the "title and "content parts in these block elements in Django Template Language can be called anything-->
+     <!-- They mark parts of HTML that can be filled in by inheriting templates (other parts not editable)-->
+    <link rel="stylesheet" href="{% static 'website/style.css' %}">
+    <!-- old stylesheet import: <link rel="stylesheet" href="/static/website/style.css">-->
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

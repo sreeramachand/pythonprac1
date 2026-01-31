@@ -1,0 +1,26 @@
+{% extends "base.html" %} <!-- must be the first tag-->
+{% load static %} <!-- needed to load image-->
+
+{% block title %}Welcome{% endblock %}
+{% block content %}
+    <h1>Welcome to the Meeting Planner!</h1>
+    <p>
+        This is the demo application for the couse 
+        <em>Django: Getting Started</em> 
+        on <a target="_blank" href="https://www.pluralsight.com">
+        Pluralsight</a>.
+    </p>
+    <p>
+        {{message}}
+    </p>
+    <img src="{% static 'website/calendar.png' %}" width="100px" alt="Image of a Calendar">
+    <h3>Meetings</h3>
+    <ul>
+        {% for meeting in meetings %}
+        <li>
+            <a href="{% url 'detail' meeting.id %}">{{ meeting.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'rooms' %}">Rooms List</a>
+{% endblock %}
