@@ -13,6 +13,16 @@
     <!-- old stylesheet import: <link rel="stylesheet" href="/static/website/style.css">-->
 </head>
 <body>
+    {% if user.is_authenticated %}
+        Logged in as: {{ user.get_username }}
+    <form method="post" action="{% url 'logout' %}" >
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+    {% else %}
+    <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+    <!-- block above gives all pages either a login or logout button. -->
     {% block content %}
     {% endblock %}
 </body>

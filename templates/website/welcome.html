@@ -14,15 +14,21 @@
         {{message}}
     </p>
     <img src="{% static 'website/calendar.png' %}" width="100px" alt="Image of a Calendar">
+    {% if not user.is_authenticated %}
+    <h3>Login To View Your Meetings</h3>
+    {% elif user.is_authenticated %}
     <h3>Meetings</h3>
     <ul>
         {% for meeting in meetings %}
+        
         <li>
             <a href="{% url 'detail' meeting.id %}">{{ meeting.title }}</a>
         </li>
+        
         {% endfor %}
     </ul>
     <a href="{% url 'rooms' %}">Rooms List</a>
 
     <button style="margin:15px; padding: 8px;"><a href="{% url 'new' %}">Create a New Meeting</a></button>
+    {% endif %}
 {% endblock %}
