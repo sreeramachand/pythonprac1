@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, redirect
 from meetings.models import Meeting, Room
 from django.forms import modelform_factory
 
+
 def detail(request, id):
     meeting = get_object_or_404(Meeting, pk=id)
     return render(request, "meetings/detail.html", {"meeting": meeting}) 
@@ -48,3 +49,4 @@ def delete(request, id):
         return redirect('welcome')
     else:
         return render(request, "meetings/confirm_delete.html", {"meeting": meeting,})
+
